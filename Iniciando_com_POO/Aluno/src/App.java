@@ -1,10 +1,12 @@
+package Iniciando_com_POO.Aluno.src;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<POO_Aluno> listAlunos = new ArrayList<>();
+        ArrayList<Aluno> listAlunos = new ArrayList<>();
 
         System.out.println("Quantidade de alunos: ");
         int quantd = sc.nextInt();
@@ -23,10 +25,10 @@ public class App {
 
             sc.nextLine();
 
-            listAlunos.add(new POO_Aluno(nome, matricula, nota1, nota2, nota3));
+            listAlunos.add(new Aluno(nome, matricula, nota1, nota2, nota3));
         }
 
-        for(POO_Aluno nome : listAlunos) {
+        for(Aluno nome : listAlunos) {
             System.out.println(nome.status());
         }
     }

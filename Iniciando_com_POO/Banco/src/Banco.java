@@ -1,6 +1,8 @@
+package Iniciando_com_POO.Banco.src;
+
 import java.util.Random;
 
-public class POO_Banco {
+public class Banco {
     int numberAccount = 0;
     String ownerAccount;
     double balanceAccount;
@@ -53,7 +55,7 @@ public class POO_Banco {
     }
 
     // Transferência
-    boolean transfer(double amount, POO_Banco targetAccount, String targetAccountOwner) {
+    boolean transfer(double amount, Banco targetAccount, String targetAccountOwner) {
         if (numberAccount == 0 || targetAccount.numberAccount == 0) {
             System.out.println("Erro: Conta de origem ou destino não foi criada.");
             return false;

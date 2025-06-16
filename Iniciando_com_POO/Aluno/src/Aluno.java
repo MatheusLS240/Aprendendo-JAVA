@@ -1,9 +1,11 @@
-class POO_Aluno {
+package Iniciando_com_POO.Aluno.src;
+
+class Aluno {
     private String nome;
     private String matricula;
     private double nota1, nota2, nota3;
 
-    public POO_Aluno(String nome, String matricula, double nota1, double nota2, double nota3) {
+    public Aluno(String nome, String matricula, double nota1, double nota2, double nota3) {
         this.nome = nome;
         this.matricula = matricula;
         this.nota1 = nota1;

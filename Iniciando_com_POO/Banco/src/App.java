@@ -1,8 +1,10 @@
-public class App {
+package Iniciando_com_POO.Banco.src;
+
+class App {
     public static void main(String[] args) {
 
-        POO_Banco a1 = new POO_Banco();
-        POO_Banco b1 = new POO_Banco();
+        Banco a1 = new Banco();
+        Banco b1 = new Banco();
 
         a1.createAccount("Fodase");
         b1.createAccount("Rafael");

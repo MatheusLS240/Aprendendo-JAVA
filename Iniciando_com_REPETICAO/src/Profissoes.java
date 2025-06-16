@@ -28,6 +28,6 @@ public class Profissoes {
 
         JOptionPane.showMessageDialog(null,
                 "Total de pessoas cadastradas: " + quantidadePessoas +
-                        "\nQuantidade de dentistas: " + quantidadeDentistas);
+                "\nQuantidade de dentistas: " + quantidadeDentistas);
     }
 }

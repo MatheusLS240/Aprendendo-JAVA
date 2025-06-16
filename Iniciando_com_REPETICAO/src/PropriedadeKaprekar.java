@@ -17,9 +17,9 @@ public class PropriedadeKaprekar {
             int soma = parte1 + parte2;
 
             if (soma * soma == numero) {
-                JOptionPane.showMessageDialog(null, numero + " tem Account_01 característica de Kaprekar!");
+                JOptionPane.showMessageDialog(null, numero + " tem característica de Kaprekar!");
             } else {
-                JOptionPane.showMessageDialog(null, numero + " não tem Account_01 característica de Kaprekar.");
+                JOptionPane.showMessageDialog(null, numero + " não tem característica de Kaprekar.");
             }
         }
     }
