@@ -1,7 +1,15 @@
+import java.time.LocalDate;
+
 abstract class Conta extends Cliente{
-    private int numConta;
+    private int numConta = (int) (Math.random() * 10000);
     private String clienteAssociado = getNome();
     private double saldo;
+    private LocalDate ultimaAtualizacao = LocalDate.now();
+    private String senha = null;
+
+    public Conta(String nome, String cpf, String email, long telefone) {
+        super(nome, cpf, email, telefone);
+    }
 
     // Metodos padrãos
     public boolean depositar(double valor) {
@@ -29,6 +37,7 @@ abstract class Conta extends Cliente{
         return false;
     }
 
+
     // Getters e Setters
     public int getNumConta() {
         return numConta;
@@ -53,4 +62,13 @@ abstract class Conta extends Cliente{
     public void setClienteAssociado(String clienteAssociado) {
         this.clienteAssociado = clienteAssociado;
     }
+
+    public LocalDate getUltimaAtualizacao() {
+        return ultimaAtualizacao;
+    }
+
+    public void setUltimaAtualizacao(LocalDate ultimaAtualizacao) {
+        this.ultimaAtualizacao = ultimaAtualizacao;
+    }
+
 }

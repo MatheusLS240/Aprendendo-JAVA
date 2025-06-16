@@ -4,7 +4,12 @@ public class Cliente {
     private String email = null;
     private long telefone = 0;
 
-
+    public Cliente(String nome, String cpf, String email, long telefone) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+    }
 
     // Getters e Setters
     public String getNome() {
