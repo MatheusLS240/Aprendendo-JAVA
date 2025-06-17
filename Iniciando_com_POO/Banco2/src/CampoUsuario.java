@@ -1,11 +1,15 @@
-public enum TipoContas {
-    CORRENTE,
-    POUPANCA,;
+public enum CampoUsuario {
+    NOME,
+    CPF,
+    EMAIL,
+    TELEFONE,
+    SENHA,
+    TODOS;
 
-    public static TipoContas converterContas(String opcao) {
+    public static CampoUsuario converterCampo(String opcao) {
         if (opcao != null) {
             try {
-                return TipoContas.valueOf(opcao.trim().toUpperCase());
+                return CampoUsuario.valueOf(opcao.trim().toUpperCase());
             } catch (IllegalArgumentException e) {
                 System.out.println("Opção inválida: " + opcao);
             }

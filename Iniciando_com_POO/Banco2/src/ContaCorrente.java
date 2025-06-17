@@ -8,8 +8,10 @@ public class ContaCorrente extends Conta {
     private boolean permiteChequeEspecial = true;
     private boolean usandoChequeEspecial = false;
 
-    public ContaCorrente(String nome, String cpf, String email, long telefone) {
+    public ContaCorrente(String nome, String cpf, String email, long telefone, String senha) {
         super(nome, cpf, email, telefone);
+        setSenha(senha);
+        setNumConta((int) (Math.random() * 10000));
     }
 
 
