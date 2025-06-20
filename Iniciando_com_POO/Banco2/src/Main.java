@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Main {
-
     // -- Função Main --
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -138,9 +137,18 @@ public class Main {
     }
 
     // -- Login --
-    private static void loginConta(Scanner sc) {
-
-    }
+//    private static void loginConta(Scanner sc) {
+//        try {
+//            System.out.println("Insira o número da conta");
+//            long num = sc.nextLong();
+//            System.out.println("Insira o tipo da conta (corrente ou poupança): ");
+//            TipoContas tipoContas = TipoContas.converterContas(sc.nextLine());
+//            System.out.println("Insira a sua senha");
+//            String senha = sc.nextLine();
+//
+//            if()
+//        } ca
+//    }
 
     // -- Exibir Menu --
     private static void exibirMenu() {

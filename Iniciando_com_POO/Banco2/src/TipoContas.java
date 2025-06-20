@@ -1,6 +1,6 @@
 public enum TipoContas {
     CORRENTE,
-    POUPANCA,;
+    POUPANCA;
 
     public static TipoContas converterContas(String opcao) {
         if (opcao != null) {
