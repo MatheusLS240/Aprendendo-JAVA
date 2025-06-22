@@ -33,14 +33,14 @@ public class CadastroProdutos {
         produtos.add(new Produto("Cabo USB", 25.50));
 
         System.out.println("Produtos (Original):");
-        produtos.forEach(System.out::println);
+        produtos.forEach(x -> System.out.println(x));
 
         produtos.sort(Comparator.comparingDouble(Produto::getPreco));
         System.out.println("\nProdutos ordenados por preço (crescente):");
-        produtos.forEach(System.out::println);
+        produtos.forEach(x -> System.out.println(x));
 
         produtos.sort(Comparator.comparingDouble(Produto::getPreco).reversed());
         System.out.println("\nrodutos ordenados por preço (decrescente):");
-        produtos.forEach(System.out::println);
+        produtos.forEach(x -> System.out.println(x));
     }
 }
