@@ -12,7 +12,7 @@ public class MediaNotas {
         }
 
         double media = notas.stream()
-                .mapToDouble(Double::doubleValue)
+                .mapToDouble(x -> x.doubleValue())
                 .average()
                 .orElse(0.0);
 
