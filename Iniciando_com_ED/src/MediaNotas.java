@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class MediaNotas {
     public static void main(String[] args) {
@@ -12,7 +11,7 @@ public class MediaNotas {
         }
 
         double media = notas.stream()
-                .mapToDouble(x -> x.doubleValue())
+                .mapToDouble(Double::doubleValue)
                 .average()
                 .orElse(0.0);
 

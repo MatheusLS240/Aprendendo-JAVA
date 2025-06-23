@@ -13,5 +13,7 @@ public class ListaDeCompras {
             listaDeCompras.add(item);
             i++;
         }
+
+        sc.close();
     }
 }

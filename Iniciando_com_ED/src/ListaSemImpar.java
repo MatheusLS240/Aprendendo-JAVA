@@ -20,5 +20,7 @@ public class ListaSemImpar {
         lista.removeIf(n ->(n % 2 != 0));
 
         System.out.println(lista);
+
+        sc.close();
     }
 }

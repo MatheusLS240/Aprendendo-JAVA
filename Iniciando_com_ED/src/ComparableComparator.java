@@ -27,13 +27,7 @@ class Conta implements Comparable<Conta> {
 
     @Override
     public int compareTo(Conta outraConta) {
-        if (this.numero < outraConta.numero) {
-            return -1;
-        }
-        if (this.numero > outraConta.numero) {
-            return 1;
-        }
-        return 0;
+        return Integer.compare(this.numero, outraConta.numero);
     }
 
     @Override
@@ -44,14 +38,14 @@ class Conta implements Comparable<Conta> {
                 '}';
     }
 }
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 class TitularComparator implements Comparator<Conta> {
     public int compare(Conta conta, Conta outraConta) {
         return conta.getTitular().compareTo(outraConta.getTitular());
     }
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 public class ComparableComparator {
     public static void main(String[] args) {
         List<Conta> lista = new ArrayList<>();
@@ -64,7 +58,7 @@ public class ComparableComparator {
         lista.add(conta2);
         lista.add(conta3);
 
-        Collections.sort(lista, comparator);
+        lista.sort(comparator);
 
         System.out.println(lista);
     }

@@ -6,8 +6,8 @@ public class AgendaTelefonica {
         Map<String, String> listaContato = new HashMap<>();
         int opcaoOperacao = -1;
 
-        while(opcaoOperacao != 0) {
-            System.out.println("-- Menu de principal --");
+        while(true) {
+            System.out.println("-- Menu principal --");
             System.out.println("0 - Sair");
             System.out.println("1 - Adicionar contato");
             System.out.println("2 - Editar contato");
@@ -17,6 +17,10 @@ public class AgendaTelefonica {
             opcaoOperacao = sc.nextInt();
 
             switch (opcaoOperacao) {
+                case 0 -> {
+                    System.out.println("Encerrando...");
+                    System.exit(0);
+                }
                 case 1 -> {
                     adicionarContato(listaContato, sc);
                 }

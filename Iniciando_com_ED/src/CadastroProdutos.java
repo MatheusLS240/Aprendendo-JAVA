@@ -8,9 +8,17 @@ class Produto {
         this.nome = nome;
         this.preco = preco;
     }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getNome() {
         return nome;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
     public double getPreco() {
@@ -33,14 +41,14 @@ public class CadastroProdutos {
         produtos.add(new Produto("Cabo USB", 25.50));
 
         System.out.println("Produtos (Original):");
-        produtos.forEach(x -> System.out.println(x));
+        produtos.forEach(System.out::println);
 
         produtos.sort(Comparator.comparingDouble(Produto::getPreco));
         System.out.println("\nProdutos ordenados por preço (crescente):");
-        produtos.forEach(x -> System.out.println(x));
+        produtos.forEach(System.out::println);
 
         produtos.sort(Comparator.comparingDouble(Produto::getPreco).reversed());
-        System.out.println("\nrodutos ordenados por preço (decrescente):");
-        produtos.forEach(x -> System.out.println(x));
+        System.out.println("\nProdutos ordenados por preço (decrescente):");
+        produtos.forEach(System.out::println);
     }
 }

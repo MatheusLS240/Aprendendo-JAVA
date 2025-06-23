@@ -38,5 +38,7 @@ public class NotasAlunos {
 
             System.out.println("Aluno: " + nome + " | Média: " + media);
         }
+
+        sc.close();
     }
 }
