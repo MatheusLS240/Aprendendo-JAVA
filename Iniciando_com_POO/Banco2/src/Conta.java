@@ -1,19 +1,10 @@
-import java.time.LocalDate;
+import java.time.*;
 
 abstract class Conta extends Cliente{
     private int numConta = 0;
     private String clienteAssociado = getNome();
     private double saldo;
     private LocalDate ultimaAtualizacao = LocalDate.now();
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     private String senha = null;
 
     public Conta(String nome, String cpf, String email, long telefone) {
@@ -79,5 +70,14 @@ abstract class Conta extends Cliente{
     public void setUltimaAtualizacao(LocalDate ultimaAtualizacao) {
         this.ultimaAtualizacao = ultimaAtualizacao;
     }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
 
 }

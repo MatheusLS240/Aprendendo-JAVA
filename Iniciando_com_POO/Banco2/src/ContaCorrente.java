@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+import java.time.*;
 
 public class ContaCorrente extends Conta {
     private double taxaManutencao = 12.90;
@@ -13,7 +13,6 @@ public class ContaCorrente extends Conta {
         setSenha(senha);
         setNumConta((int) (Math.random() * 10000));
     }
-
 
     @Override
     public boolean sacar(double valor) {
