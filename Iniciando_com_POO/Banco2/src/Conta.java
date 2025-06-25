@@ -4,8 +4,8 @@ abstract class Conta extends Cliente{
     private int numConta = 0;
     private String clienteAssociado = getNome();
     private double saldo;
-    private LocalDate ultimaAtualizacao = LocalDate.now();
     private String senha = null;
+    private LocalDate ultimaAtualizacao = LocalDate.now();
 
     public Conta(String nome, String cpf, String email, long telefone) {
         super(nome, cpf, email, telefone);
@@ -37,7 +37,6 @@ abstract class Conta extends Cliente{
         return false;
     }
 
-
     // Getters e Setters
     public int getNumConta() {
         return numConta;
@@ -63,14 +62,6 @@ abstract class Conta extends Cliente{
         this.clienteAssociado = clienteAssociado;
     }
 
-    public LocalDate getUltimaAtualizacao() {
-        return ultimaAtualizacao;
-    }
-
-    public void setUltimaAtualizacao(LocalDate ultimaAtualizacao) {
-        this.ultimaAtualizacao = ultimaAtualizacao;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -79,5 +70,11 @@ abstract class Conta extends Cliente{
         this.senha = senha;
     }
 
+    public LocalDate getUltimaAtualizacao() {
+        return ultimaAtualizacao;
+    }
 
+    public void setUltimaAtualizacao(LocalDate ultimaAtualizacao) {
+        this.ultimaAtualizacao = ultimaAtualizacao;
+    }
 }
