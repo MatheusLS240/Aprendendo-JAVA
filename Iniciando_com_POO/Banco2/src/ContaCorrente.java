@@ -14,6 +14,7 @@ public class ContaCorrente extends Conta {
         setNumConta((int) (Math.random() * 10000));
     }
 
+    // Metodos unicos da classe
     @Override
     public boolean sacar(double valor) {
         double saldoAtual = getSaldo();
@@ -33,21 +34,14 @@ public class ContaCorrente extends Conta {
         }
     }
 
-    public void verificarEncargosMensais() {
+    private void verificarEncargosMensais() {
         LocalDate hoje = LocalDate.now();
         if(getUltimaAtualizacao().plusMonths(1).isBefore(hoje) || getUltimaAtualizacao().plusMonths(1).equals(hoje)) {
-            aplicarEncargosMensais();
+            descontarTaxaManutencao();
+            if(usandoChequeEspecial) {
+                aplicarJurosChequeEspecial();
+            }
             setUltimaAtualizacao(hoje);
-        }
-    }
-
-    public void aplicarEncargosMensais() {
-        System.out.println("Aplicando encargos da Conta Corrente...");
-        setSaldo(getSaldo() - taxaManutencao);
-
-        if (getSaldo() < 0) {
-            double juros = Math.abs(getSaldo()) * jurosChequeEspecial;
-            setSaldo(getSaldo() - juros);
         }
     }
 
@@ -60,9 +54,55 @@ public class ContaCorrente extends Conta {
         if (getSaldo() < 0) {
             double juros = Math.abs(getSaldo()) * jurosChequeEspecial;
             setSaldo(getSaldo() - juros);
-            System.out.println("Juros de R$" + juros + " aplicados sobre o cheque especial.");
-        }
+            System.out.println("Juros de R$" + juros + " aplicados sobre o cheque especial.");}
     }
 
+    // Metodos gatters e setters
+    public double getTaxaManutencao() {
+        return taxaManutencao;
+    }
 
+    public void setTaxaManutencao(double taxaManutencao) {
+        this.taxaManutencao = taxaManutencao;
+    }
+
+    public double getLimiteChequeEspecial() {
+        return limiteChequeEspecial;
+    }
+
+    public void setLimiteChequeEspecial(double limiteChequeEspecial) {
+        this.limiteChequeEspecial = limiteChequeEspecial;
+    }
+
+    public double getJurosChequeEspecial() {
+        return jurosChequeEspecial;
+    }
+
+    public void setJurosChequeEspecial(double jurosChequeEspecial) {
+        this.jurosChequeEspecial = jurosChequeEspecial;
+    }
+
+    public double getTaxaSaque() {
+        return taxaSaque;
+    }
+
+    public void setTaxaSaque(double taxaSaque) {
+        this.taxaSaque = taxaSaque;
+    }
+
+    public boolean isPermiteChequeEspecial() {
+        return permiteChequeEspecial;
+    }
+
+    public void setPermiteChequeEspecial(boolean permiteChequeEspecial) {
+        this.permiteChequeEspecial = permiteChequeEspecial;
+    }
+
+    public boolean isUsandoChequeEspecial() {
+        return usandoChequeEspecial;
+    }
+
+    public void setUsandoChequeEspecial(boolean usandoChequeEspecial) {
+        this.usandoChequeEspecial = usandoChequeEspecial;
+    }
 }
