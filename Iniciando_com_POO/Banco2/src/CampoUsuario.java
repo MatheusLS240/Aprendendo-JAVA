@@ -1,3 +1,4 @@
+// -- Tipos de informações que um cliente pode e deve inserir --
 public enum CampoUsuario {
     NOME,
     CPF,
@@ -13,10 +14,8 @@ public enum CampoUsuario {
             } catch (IllegalArgumentException e) {
                 System.out.println("Opção inválida: " + opcao);
             }
-        } else {
-            System.out.println("Campo vazio ou caracteres ilegais");
-            return null;
         }
+        System.out.println("Campo vazio ou caracteres ilegais");
         return null;
     }
 }

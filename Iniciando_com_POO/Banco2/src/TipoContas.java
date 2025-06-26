@@ -1,3 +1,4 @@
+// -- Tipos de opções de conta --
 public enum TipoContas {
     CORRENTE,
     POUPANCA;
@@ -9,10 +10,8 @@ public enum TipoContas {
             } catch (IllegalArgumentException e) {
                 System.out.println("Opção inválida: " + opcao);
             }
-        } else {
-            System.out.println("Campo vazio ou caracteres ilegais");
-            return null;
         }
+        System.out.println("Campo vazio ou caracteres ilegais");
         return null;
     }
 }

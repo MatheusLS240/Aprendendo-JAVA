@@ -7,6 +7,7 @@ abstract class Conta extends Cliente{
     private String senha = null;
     private LocalDate ultimaAtualizacao = LocalDate.now();
 
+    // -- Construtor --
     public Conta(String nome, String cpf, String email, long telefone) {
         super(nome, cpf, email, telefone);
     }
@@ -37,7 +38,7 @@ abstract class Conta extends Cliente{
         return false;
     }
 
-    // Getters e Setters
+    // -- Getters e Setters --
     public int getNumConta() {
         return numConta;
     }

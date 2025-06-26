@@ -8,13 +8,14 @@ public class ContaCorrente extends Conta {
     private boolean permiteChequeEspecial = true;
     private boolean usandoChequeEspecial = false;
 
+    // -- Construtor --
     public ContaCorrente(String nome, String cpf, String email, long telefone, String senha) {
         super(nome, cpf, email, telefone);
         setSenha(senha);
         setNumConta((int) (Math.random() * 10000));
     }
 
-    // Metodos unicos da classe
+    // -- Metodos unicos da classe --
     @Override
     public boolean sacar(double valor) {
         double saldoAtual = getSaldo();
@@ -24,14 +25,24 @@ public class ContaCorrente extends Conta {
             setSaldo(saldoAtual - valor);
             System.out.println("Saque realizado com sucesso. Saldo restante: R$ " + getSaldo());
             return true;
-        } else if (permiteChequeEspecial && valor <= saldoECheque) {
-            setSaldo((saldoAtual - valor) - taxaSaque);
-            usandoChequeEspecial = true;
+        } else if (verificandoUsoCheque(valor)) {
             System.out.println("Saque realizado com uso do cheque especial. Saldo atual: R$ " + getSaldo());
             return true;
         } else {
             return false;
         }
+    }
+
+    private boolean verificandoUsoCheque(double valor) {
+        double saldoAtual = getSaldo();
+        double saldoECheque = saldoAtual + limiteChequeEspecial;
+
+        if(permiteChequeEspecial && valor <= saldoECheque) {
+            setSaldo((saldoAtual - valor) - taxaSaque);
+            usandoChequeEspecial = true;
+            return true;
+        }
+        return false;
     }
 
     private void verificarEncargosMensais() {
@@ -57,7 +68,7 @@ public class ContaCorrente extends Conta {
             System.out.println("Juros de R$" + juros + " aplicados sobre o cheque especial.");}
     }
 
-    // Metodos gatters e setters
+    // -- Metodos gatters e setters --
     public double getTaxaManutencao() {
         return taxaManutencao;
     }
