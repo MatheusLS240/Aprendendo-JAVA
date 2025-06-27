@@ -3,10 +3,12 @@ public class Cliente {
     private String cpf = null;
     private String email = null;
     private long telefone = 0;
+    private String genero = null;
 
     // -- Construtor --
-    public Cliente(String nome, String cpf, String email, long telefone) {
+    public Cliente(String nome, String genero, String cpf, String email, long telefone) {
         this.nome = nome;
+        this.genero = genero;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
@@ -43,5 +45,13 @@ public class Cliente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }

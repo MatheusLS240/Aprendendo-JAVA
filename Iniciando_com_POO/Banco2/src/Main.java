@@ -19,7 +19,6 @@ public class Main {
                     case 0 -> System.out.println("Encerrando o sistema...");
                     default -> System.out.println("Opção inválida!");
                 }
-
             } catch (NumberFormatException e) {
                 System.err.println("Opção inválida! Digite um número inteiro.");
                 opcao = -1;

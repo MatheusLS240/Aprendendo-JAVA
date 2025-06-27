@@ -9,8 +9,8 @@ public class ContaPoupanca extends Conta {
     private boolean valorAplicado = false;
 
     // -- Construtor --
-    public ContaPoupanca(String nome, String cpf, String email, long telefone, String senha) {
-        super(nome, cpf, email, telefone);
+    public ContaPoupanca(String nome, String genero, String cpf, String email, long telefone, String senha) {
+        super(nome, genero, cpf, email, telefone);
         setSenha(senha);
         setNumConta((int) (Math.random() * 10000));
     }

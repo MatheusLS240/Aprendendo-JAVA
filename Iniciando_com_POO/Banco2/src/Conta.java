@@ -8,8 +8,8 @@ abstract class Conta extends Cliente{
     private LocalDate ultimaAtualizacao = LocalDate.now();
 
     // -- Construtor --
-    public Conta(String nome, String cpf, String email, long telefone) {
-        super(nome, cpf, email, telefone);
+    public Conta(String nome, String genero,String cpf, String email, long telefone) {
+        super(nome, genero, cpf, email, telefone);
     }
 
     // Metodos padrãos
