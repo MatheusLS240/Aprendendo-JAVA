@@ -16,6 +16,18 @@ public class ContaPoupanca extends Conta {
     }
 
     // -- Aplicando os rendimentos mensais --
+    @Override
+    public void sacar(double valor) {
+        aplicarRendimentosMensais(); // Gera os rendimentos antes do saque
+
+        if (valor <= getSaldo() && valor >= 1) {
+            setSaldo(getSaldo() - valor);
+            System.out.printf("Saque de %.2f realizado com sucesso!\n", valor);
+        } else {
+            System.out.println("Erro no saque, valor inválido ou saldo insuficiente.");
+        }
+    }
+
     private void aplicarRendimentosMensais() {
         LocalDate hoje = LocalDate.now();
         if(getUltimaAtualizacao().plusMonths(1).isBefore(hoje) || getUltimaAtualizacao().plusMonths(1).equals(hoje)) {
@@ -88,4 +100,5 @@ public class ContaPoupanca extends Conta {
     public void setDataAplicacao(LocalDate dataAplicacao) {
         this.dataAplicacao = dataAplicacao;
     }
+
 }

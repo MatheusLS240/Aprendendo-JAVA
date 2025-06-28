@@ -1,9 +1,10 @@
 import java.time.*;
+import java.util.*;
 
 abstract class Conta extends Cliente{
     private int numConta = 0;
     private String clienteAssociado = getNome();
-    private double saldo;
+    private double saldo = 0.00;
     private String senha = null;
     private LocalDate ultimaAtualizacao = LocalDate.now();
 
@@ -13,29 +14,53 @@ abstract class Conta extends Cliente{
     }
 
     // Metodos padrãos
-    public boolean depositar(double valor) {
+    public void depositar(Scanner sc) {
+        System.out.print("Perfeito! Insira o valor do deposito: ");
+        double valor = sc.nextDouble();
         if(valor >= 1) {
             this.saldo = this.saldo + valor;
-            return true;
+            System.out.printf("Deposito de %.2f realizado com sucesso!", valor);
+        } else {
+            System.out.println("Erro ao depositar, por favor, tentar mais tarde.");
         }
-        return false;
     }
 
-    public boolean sacar(double valor) {
+    public void sacar(Scanner sc) {
+        System.out.print("Perfeito! Insira o valor do saque: ");
+        double valor = sc.nextDouble();
         if(valor <= this.saldo && valor >= 1) {
             this.saldo = this.saldo - valor;
-            return true;
+            System.out.printf("Saque de %.2f realizado com sucesso!", valor);
+        } else {
+            System.out.printf("Erro no saque, por favor, tente novamente mais tarde.");
         }
-        return false;
     }
 
-    public boolean tranferir(Conta contaDestino, double valor) {
-        if(valor <= this.saldo) {
-            this.saldo = this.saldo - valor;
-            contaDestino.setSaldo(contaDestino.getSaldo() + valor);
-            return true;
+    public void transferir(Scanner sc, Map<Integer, Conta> listaDeContas) {
+        boolean contaEncontrada = false;
+        System.out.print("Perfeito! Insira o número da conta: ");
+        int numero = sc.nextInt();
+        System.out.print("Agora, insira o valor: ");
+        double valor = sc.nextDouble();
+
+        for (Map.Entry<Integer, Conta> entry : listaDeContas.entrySet()) {
+            if(numero == entry.getValue().numConta) {
+                contaEncontrada = true;
+                if(this.saldo >= 1) {
+                    this.saldo = this.saldo - valor;
+                    entry.getValue().setSaldo(valor);
+                    System.out.println("Transferência realizada com sucesso!");
+                } else {
+                    System.out.println("Saldo insuficiente!");
+                }
+                break;
+            }
         }
-        return false;
+
+        if(!contaEncontrada) {
+            System.out.println("Conta de destino não encontrada, tente novamente mais tarde!");
+        }
+
     }
 
     // -- Getters e Setters --
@@ -78,4 +103,6 @@ abstract class Conta extends Cliente{
     public void setUltimaAtualizacao(LocalDate ultimaAtualizacao) {
         this.ultimaAtualizacao = ultimaAtualizacao;
     }
+
+    public abstract void sacar(double valor);
 }

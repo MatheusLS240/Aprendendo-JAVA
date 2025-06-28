@@ -15,21 +15,18 @@ public class ContaCorrente extends Conta {
         setNumConta((int) (Math.random() * 10000));
     }
 
-    // -- Metodos unicos da classe --
-    @Override
-    public boolean sacar(double valor) {
+     // -- Metodos unicos da classe --
+     @Override
+     public void sacar(double valor) {
         double saldoAtual = getSaldo();
-        double saldoECheque = saldoAtual + limiteChequeEspecial;
 
         if (valor <= saldoAtual) {
             setSaldo(saldoAtual - valor);
             System.out.println("Saque realizado com sucesso. Saldo restante: R$ " + getSaldo());
-            return true;
         } else if (verificandoUsoCheque(valor)) {
             System.out.println("Saque realizado com uso do cheque especial. Saldo atual: R$ " + getSaldo());
-            return true;
         } else {
-            return false;
+            System.out.println("Saldo insuficiente");
         }
     }
 

@@ -23,19 +23,35 @@ public enum CampoUsuario {
         return null;
     }
 
-    public static String verificarGenero(Scanner sc) {
-        int i = 0;
-        String genero = null;
-        do {
-            if (i > 0) {
-                System.err.print("Gênero inválido! Tente novamente: ");
-            }
+        public static String verificarGenero(Scanner sc) {
+            int i = 0;
+            String genero = null;
+                do {
+                    if (i > 0) {
+                        System.err.print("Gênero inválido! Tente novamente: ");
+                    }
 
-            genero = sc.nextLine().toLowerCase();
-            i++;
-        } while (!genero.equals("masculino") && !genero.equals("feminino"));
+                    genero = toCapitalize(sc);
+                    i++;
+                } while (!genero.equals("Masculino") && !genero.equals("Feminino"));
 
-        return genero;
+            return genero;
+        }
+
+    public static String toCapitalize(Scanner sc) {
+        String campo = sc.nextLine();
+
+        if (campo.isEmpty()) {
+            return "";
+        }
+
+        return campo.substring(0, 1).toUpperCase() + campo.substring(1);
+    }
+
+    public static String verificarCampoVazio(String campo) {
+        if(campo.isEmpty()) {
+            return "";
+        }
     }
 }
 

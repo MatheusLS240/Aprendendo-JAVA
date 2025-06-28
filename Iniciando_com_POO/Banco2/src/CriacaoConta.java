@@ -7,8 +7,8 @@ public class CriacaoConta {
         Conta conta = null;
         try {
             // Inserir dados de cadastro
-            System.out.print("\nInsira seu nome: ");
-            String nome = sc.nextLine();
+            System.out.print("Insira seu nome: ");
+            String nome = CampoUsuario.toCapitalize(sc);
             System.out.print("Insira seu gênero: (Masculino ou Feminino) ");
             String genero = CampoUsuario.verificarGenero(sc);
             System.out.print("Insira seu CPF: ");
@@ -20,9 +20,11 @@ public class CriacaoConta {
             System.out.print("Insira uma senha: ");
             String senha = sc.nextLine();
 
+
             // Selecionar tipo de conta para criação
-            System.out.print("Qual tipo de conta deseja criar? (corrente/poupanca): ");
+            System.out.print("Qual tipo de conta deseja criar? (Corrente/Poupanca): ");
             String opcaoConta = sc.nextLine();
+            System.out.print("=======================");
 
             // Convertendo a variavel 'opcaoConta' para o valor correto do Enum
             TipoContas tipo = TipoContas.converterContas(opcaoConta);
@@ -43,7 +45,7 @@ public class CriacaoConta {
                     conta = criarContaPorTipo(tipo, nome, genero, cpf, email, telefone, senha);
                     listaDeContas.put(conta.getNumConta(), conta);
 
-                    System.out.printf("\nConta %s criada com sucesso!", tipo);
+                    System.out.printf("\nConta %s criada com sucesso!\n", tipo);
                     infoContas(nome, genero, cpf, email, telefone, senha, conta.getNumConta());
                 }
                 // Caso o usuário queira alterar algo antes de criar a conta
@@ -58,7 +60,7 @@ public class CriacaoConta {
                             switch (campo) {
                                 case NOME -> {
                                     System.out.print("Insira novo nome: ");
-                                    nome = sc.nextLine();
+                                    nome = CampoUsuario.toCapitalize(sc);
                                 }
                                 case GENERO -> {
                                     System.out.print("Insira o novo gênero: (Masculino ou Feminino) ");
@@ -83,7 +85,7 @@ public class CriacaoConta {
                                 case TODOS -> {
                                     // Permite editar todos os campos de uma vez
                                     System.out.print("Insira novo nome: ");
-                                    nome = sc.nextLine();
+                                    nome = CampoUsuario.toCapitalize(sc);
                                     System.out.print("Insira o novo gênero: (Masculino ou Feminino) ");
                                     genero = CampoUsuario.verificarGenero(sc);
                                     System.out.print("Insira novo CPF: ");
@@ -146,6 +148,7 @@ public class CriacaoConta {
         System.out.println("Telefone: " + telefone);
         System.out.println("Senha: " + senha);
         System.out.println("Número da Conta: " + conta);
+        System.out.println("=======================");
     }
 
     private static void mostrarInformacoesCadastradas(String nome, String genero, String cpf, String email, long telefone, String senha) {
@@ -156,5 +159,6 @@ public class CriacaoConta {
         System.out.println("Email: " + email);
         System.out.println("Telefone: " + telefone);
         System.out.println("Senha: " + senha);
+        System.out.println("=======================");
     }
 }

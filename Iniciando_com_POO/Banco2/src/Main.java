@@ -8,22 +8,23 @@ public class Main {
         int opcao;
 
         do {
-            exibirMenu();
             try {
-                System.out.print("\nEscolha uma opção: ");
+                exibirMenu();
+                System.out.print("Escolha uma opção: ");
                 opcao = Integer.parseInt(sc.nextLine());
+                System.out.println("=======================");
 
                 switch (opcao) {
+                    case 0 -> System.out.println("Encerrando o sistema...");
                     case 1 -> CriacaoConta.criarConta(sc, listaDeContas);
                     case 2 -> LoginConta.loginConta(sc, listaDeContas);
-                    case 0 -> System.out.println("Encerrando o sistema...");
-                    default -> System.out.println("Opção inválida!");
+                    default -> System.out.print("Opção inválida!");
                 }
             } catch (NumberFormatException e) {
+                System.out.print("=======================");
                 System.err.println("Opção inválida! Digite um número inteiro.");
                 opcao = -1;
             }
-
         } while (opcao != 0);
 
         sc.close();
