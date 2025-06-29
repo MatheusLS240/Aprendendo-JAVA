@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+// Conta poupança com rendimento e carência
 public class ContaPoupanca extends Conta {
     private double taxaRendimento = 0.005;
     private int carenciaDias = 10;
@@ -26,6 +27,7 @@ public class ContaPoupanca extends Conta {
         }
     }
 
+    // Aplica rendimento mensal se necessário
     private void aplicarRendimentosMensais() {
         LocalDate hoje = LocalDate.now();
         if(getUltimaAtualizacao().plusMonths(1).isBefore(hoje) || getUltimaAtualizacao().plusMonths(1).equals(hoje)) {
@@ -39,6 +41,7 @@ public class ContaPoupanca extends Conta {
         }
     }
 
+    // Verifica se já cumpriu a carência para saque do rendimento
     private boolean verificarCarenciaDias() {
         LocalDate hoje = LocalDate.now();
         if(dataAplicacao != null) {
@@ -47,6 +50,7 @@ public class ContaPoupanca extends Conta {
         return false;
     }
 
+    // Resgata rendimento se possível
     private void resgatarRendimentosMensais() {
         LocalDate hoje = LocalDate.now();
         if(valorAplicado) {
@@ -64,6 +68,7 @@ public class ContaPoupanca extends Conta {
         }
     }
 
+    // Getters e setters
     public double getTaxaRendimento() {
         return taxaRendimento;
     }

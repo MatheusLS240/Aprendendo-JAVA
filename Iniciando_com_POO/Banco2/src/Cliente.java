@@ -1,3 +1,4 @@
+// Representa um cliente do banco
 public class Cliente {
     private String nome = null;
     private String cpf = null;
@@ -13,6 +14,7 @@ public class Cliente {
         this.telefone = telefone;
     }
 
+    // Getters e setters
     public String getNome() {
         return nome;
     }

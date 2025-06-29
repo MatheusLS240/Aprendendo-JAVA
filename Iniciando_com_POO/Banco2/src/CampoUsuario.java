@@ -1,5 +1,6 @@
 import java.util.*;
 
+// Enum para campos de usuário e utilitários de validação
 public enum CampoUsuario {
     NOME,
     GENERO,
@@ -9,7 +10,7 @@ public enum CampoUsuario {
     SENHA,
     TODOS;
 
-
+    // Converte string para campo do enum
     public static CampoUsuario converterCampo(String opcao) {
         if (opcao != null) {
             try {
@@ -22,6 +23,7 @@ public enum CampoUsuario {
         return null;
     }
 
+    // Valida campo não vazio
     public static String verificarCampo(Scanner sc) throws Exception {
         String valor = sc.nextLine();
         int i = 1;
@@ -35,18 +37,19 @@ public enum CampoUsuario {
             i++;
         }
         return valor;
-
     }
 
+    // Valida gênero (masculino/feminino)
     public static String verificarGenero(Scanner sc) throws Exception {
         String genero = null;
-            do {
-                genero = verificarCampo(sc);
-                genero = toCapitalize(sc);
-            } while (!genero.equals("Masculino") && !genero.equals("Feminino"));
+        do {
+            genero = verificarCampo(sc);
+            genero = toCapitalize(sc);
+        } while (!genero.equals("Masculino") && !genero.equals("Feminino"));
         return genero;
     }
 
+    // Capitaliza primeira letra do campo
     public static String toCapitalize(Scanner sc) throws Exception {
         String campo = sc.nextLine();
 

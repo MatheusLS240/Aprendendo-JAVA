@@ -1,7 +1,9 @@
+// Enum para tipos de contas bancárias
 public enum TipoContas {
     CORRENTE,
     POUPANCA;
 
+    // Converte string para tipo de conta
     public static TipoContas converterContas(String opcao) {
         if (opcao != null) {
             try {

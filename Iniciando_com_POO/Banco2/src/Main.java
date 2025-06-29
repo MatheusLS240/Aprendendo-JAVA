@@ -19,6 +19,7 @@ public class Main {
                     default -> System.out.print("Opção inválida!");
                 }
             } catch (NumberFormatException e) {
+                // Entrada inválida no menu principal
                 System.err.println("Opção inválida! Digite um número inteiro.");
                 opcao = -1;
             }
@@ -27,6 +28,7 @@ public class Main {
         sc.close();
     }
 
+    // Exibe menu principal do sistema
     private static void exibirMenu() {
         System.out.println("\n=======================");
         System.out.println("  Sistema Bancário");

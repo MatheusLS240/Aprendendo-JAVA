@@ -1,5 +1,6 @@
 import java.time.*;
 
+// Conta corrente com funcionalidades específicas
 public class ContaCorrente extends Conta {
     private double taxaManutencao = 12.90;
     private double limiteChequeEspecial = 500.00;
@@ -14,8 +15,8 @@ public class ContaCorrente extends Conta {
         setNumConta((int) (Math.random() * 10000));
     }
 
-     @Override
-     public void sacar(double valor) {
+    @Override
+    public void sacar(double valor) {
         double saldoAtual = getSaldo();
 
         if (valor <= saldoAtual) {
@@ -28,6 +29,7 @@ public class ContaCorrente extends Conta {
         }
     }
 
+    // Verifica e utiliza cheque especial se necessário
     private boolean verificandoUsoCheque(double valor) {
         double saldoAtual = getSaldo();
         double saldoECheque = saldoAtual + limiteChequeEspecial;
@@ -40,6 +42,7 @@ public class ContaCorrente extends Conta {
         return false;
     }
 
+    // Aplica encargos mensais se necessário
     private void verificarEncargosMensais() {
         LocalDate hoje = LocalDate.now();
         if(getUltimaAtualizacao().plusMonths(1).isBefore(hoje) || getUltimaAtualizacao().plusMonths(1).equals(hoje)) {
@@ -60,9 +63,11 @@ public class ContaCorrente extends Conta {
         if (getSaldo() < 0) {
             double juros = Math.abs(getSaldo()) * jurosChequeEspecial;
             setSaldo(getSaldo() - juros);
-            System.out.println("Juros de R$" + juros + " aplicados sobre o cheque especial.");}
+            System.out.println("Juros de R$" + juros + " aplicados sobre o cheque especial.");
+        }
     }
 
+    // Getters e setters
     public double getTaxaManutencao() {
         return taxaManutencao;
     }

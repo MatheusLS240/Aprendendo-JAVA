@@ -1,6 +1,7 @@
 import java.time.*;
 import java.util.*;
 
+// Classe abstrata base para contas bancárias
 abstract class Conta extends Cliente{
     private int numConta = 0;
     private String clienteAssociado = getNome();
@@ -12,6 +13,7 @@ abstract class Conta extends Cliente{
         super(nome, genero, cpf, email, telefone);
     }
 
+    // Depósito com validação de valor mínimo
     public void depositar(Scanner sc) {
         System.out.print("Perfeito! Insira o valor do deposito: ");
         double valor = sc.nextDouble();
@@ -23,6 +25,7 @@ abstract class Conta extends Cliente{
         }
     }
 
+    // Saque com validação de saldo e valor mínimo
     public void sacar(Scanner sc) {
         System.out.print("Perfeito! Insira o valor do saque: ");
         double valor = sc.nextDouble();
@@ -34,6 +37,7 @@ abstract class Conta extends Cliente{
         }
     }
 
+    // Transferência entre contas
     public void transferir(Scanner sc, Map<Integer, Conta> listaDeContas) {
         boolean contaEncontrada = false;
         System.out.print("Perfeito! Insira o número da conta: ");
@@ -61,6 +65,7 @@ abstract class Conta extends Cliente{
 
     }
 
+    // Getters e setters
     public int getNumConta() {
         return numConta;
     }
