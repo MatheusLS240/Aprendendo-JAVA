@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Main {
-    // -- Função Main --
     public static void main(String[] args) {
         Map<Integer, Conta> listaDeContas = new HashMap<>();
         Scanner sc = new Scanner(System.in);
@@ -10,9 +9,8 @@ public class Main {
         do {
             try {
                 exibirMenu();
-                System.out.print("Escolha uma opção: ");
+                System.out.printf("\nEscolha uma opção: ");
                 opcao = Integer.parseInt(sc.nextLine());
-                System.out.println("=======================");
 
                 switch (opcao) {
                     case 0 -> System.out.println("Encerrando o sistema...");
@@ -21,7 +19,6 @@ public class Main {
                     default -> System.out.print("Opção inválida!");
                 }
             } catch (NumberFormatException e) {
-                System.out.print("=======================");
                 System.err.println("Opção inválida! Digite um número inteiro.");
                 opcao = -1;
             }
@@ -30,7 +27,6 @@ public class Main {
         sc.close();
     }
 
-    // -- Exibir Menu --
     private static void exibirMenu() {
         System.out.println("\n=======================");
         System.out.println("  Sistema Bancário");

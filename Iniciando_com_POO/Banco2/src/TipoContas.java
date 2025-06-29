@@ -1,4 +1,3 @@
-// -- Tipos de opções de conta --
 public enum TipoContas {
     CORRENTE,
     POUPANCA;

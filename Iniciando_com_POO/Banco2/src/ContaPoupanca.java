@@ -8,17 +8,15 @@ public class ContaPoupanca extends Conta {
     private LocalDate dataAplicacao = null;
     private boolean valorAplicado = false;
 
-    // -- Construtor --
     public ContaPoupanca(String nome, String genero, String cpf, String email, long telefone, String senha) {
         super(nome, genero, cpf, email, telefone);
         setSenha(senha);
         setNumConta((int) (Math.random() * 10000));
     }
 
-    // -- Aplicando os rendimentos mensais --
     @Override
     public void sacar(double valor) {
-        aplicarRendimentosMensais(); // Gera os rendimentos antes do saque
+        aplicarRendimentosMensais();
 
         if (valor <= getSaldo() && valor >= 1) {
             setSaldo(getSaldo() - valor);
@@ -41,7 +39,6 @@ public class ContaPoupanca extends Conta {
         }
     }
 
-    // -- Verifica se o valor de resgate dos rendimentos mensais passou de 10 dias desde a aplicação do valor --
     private boolean verificarCarenciaDias() {
         LocalDate hoje = LocalDate.now();
         if(dataAplicacao != null) {
@@ -50,7 +47,6 @@ public class ContaPoupanca extends Conta {
         return false;
     }
 
-    // -- Resgata o valor do rendimento mensal --
     private void resgatarRendimentosMensais() {
         LocalDate hoje = LocalDate.now();
         if(valorAplicado) {
@@ -68,7 +64,6 @@ public class ContaPoupanca extends Conta {
         }
     }
 
-    // -- Getters e Setters --
     public double getTaxaRendimento() {
         return taxaRendimento;
     }

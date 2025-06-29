@@ -8,12 +8,10 @@ abstract class Conta extends Cliente{
     private String senha = null;
     private LocalDate ultimaAtualizacao = LocalDate.now();
 
-    // -- Construtor --
     public Conta(String nome, String genero,String cpf, String email, long telefone) {
         super(nome, genero, cpf, email, telefone);
     }
 
-    // Metodos padrãos
     public void depositar(Scanner sc) {
         System.out.print("Perfeito! Insira o valor do deposito: ");
         double valor = sc.nextDouble();
@@ -63,7 +61,6 @@ abstract class Conta extends Cliente{
 
     }
 
-    // -- Getters e Setters --
     public int getNumConta() {
         return numConta;
     }

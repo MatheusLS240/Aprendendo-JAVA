@@ -1,6 +1,5 @@
 import java.util.*;
 
-// -- Tipos de informações que um cliente pode e deve inserir --
 public enum CampoUsuario {
     NOME,
     GENERO,
@@ -23,35 +22,37 @@ public enum CampoUsuario {
         return null;
     }
 
-        public static String verificarGenero(Scanner sc) {
-            int i = 0;
-            String genero = null;
-                do {
-                    if (i > 0) {
-                        System.err.print("Gênero inválido! Tente novamente: ");
-                    }
-
-                    genero = toCapitalize(sc);
-                    i++;
-                } while (!genero.equals("Masculino") && !genero.equals("Feminino"));
-
-            return genero;
+    public static String verificarCampo(Scanner sc) throws Exception {
+        String valor = sc.nextLine();
+        int i = 1;
+        while (valor.isEmpty()) {
+            if(i <= 3) {
+                System.err.print("Campo não pode ser vazio! Tente novamente: ");
+                valor = sc.nextLine();
+            } else {
+                throw new Exception();
+            }
+            i++;
         }
+        return valor;
 
-    public static String toCapitalize(Scanner sc) {
-        String campo = sc.nextLine();
-
-        if (campo.isEmpty()) {
-            return "";
-        }
-
-        return campo.substring(0, 1).toUpperCase() + campo.substring(1);
     }
 
-    public static String verificarCampoVazio(String campo) {
-        if(campo.isEmpty()) {
-            return "";
-        }
+    public static String verificarGenero(Scanner sc) throws Exception {
+        String genero = null;
+            do {
+                genero = verificarCampo(sc);
+                genero = toCapitalize(sc);
+            } while (!genero.equals("Masculino") && !genero.equals("Feminino"));
+        return genero;
+    }
+
+    public static String toCapitalize(Scanner sc) throws Exception {
+        String campo = sc.nextLine();
+
+        campo = verificarCampo(sc);
+
+        return campo.substring(0, 1).toUpperCase() + campo.substring(1);
     }
 }
 

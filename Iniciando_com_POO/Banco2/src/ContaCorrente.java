@@ -8,14 +8,12 @@ public class ContaCorrente extends Conta {
     private boolean permiteChequeEspecial = true;
     private boolean usandoChequeEspecial = false;
 
-    // -- Construtor --
     public ContaCorrente(String nome, String genero, String cpf, String email, long telefone, String senha) {
         super(nome, genero, cpf, email, telefone);
         setSenha(senha);
         setNumConta((int) (Math.random() * 10000));
     }
 
-     // -- Metodos unicos da classe --
      @Override
      public void sacar(double valor) {
         double saldoAtual = getSaldo();
@@ -65,7 +63,6 @@ public class ContaCorrente extends Conta {
             System.out.println("Juros de R$" + juros + " aplicados sobre o cheque especial.");}
     }
 
-    // -- Metodos gatters e setters --
     public double getTaxaManutencao() {
         return taxaManutencao;
     }

@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class LoginConta {
-    // -- Login --
     public static void loginConta(Scanner sc, Map<Integer, Conta> listaDeContas) {
         try {
             System.out.print("Insira o número da conta: ");
@@ -49,7 +48,7 @@ public class LoginConta {
     private static void menuPrincipal(Scanner sc, Map.Entry<Integer, Conta> entry, Map<Integer, Conta> listaDeContas) {
         try {
             while (true) {
-                System.out.println("\nO que vamos fazer hoje?");
+                System.out.println("\n\nO que vamos fazer hoje?");
                 System.out.println("Depositar - Sacar - Transferência - Sair");
                 String opcao = sc.nextLine().toLowerCase();
 
