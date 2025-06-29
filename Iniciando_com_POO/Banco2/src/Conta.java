@@ -2,7 +2,7 @@ import java.time.*;
 import java.util.*;
 
 // Classe abstrata base para contas bancárias
-abstract class Conta extends Cliente{
+abstract class Conta extends Cliente {
     private int numConta = 0;
     private String clienteAssociado = getNome();
     private double saldo = 0.00;
@@ -19,7 +19,7 @@ abstract class Conta extends Cliente{
         double valor = sc.nextDouble();
         if(valor >= 1) {
             this.saldo = this.saldo + valor;
-            System.out.printf("Deposito de %.2f realizado com sucesso!", valor);
+            System.out.printf("\n💰 Depósito de %.2f realizado com sucesso!\n", valor);
         } else {
             System.out.println("Erro ao depositar, por favor, tentar mais tarde.");
         }
@@ -31,7 +31,7 @@ abstract class Conta extends Cliente{
         double valor = sc.nextDouble();
         if(valor <= this.saldo && valor >= 1) {
             this.saldo = this.saldo - valor;
-            System.out.printf("Saque de %.2f realizado com sucesso!", valor);
+            System.out.printf("\n💸 Saque de %.2f realizado com sucesso!\n", valor);
         } else {
             System.out.printf("Erro no saque, por favor, tente novamente mais tarde.");
         }
@@ -51,16 +51,16 @@ abstract class Conta extends Cliente{
                 if(this.saldo >= 1) {
                     this.saldo = this.saldo - valor;
                     entry.getValue().setSaldo(valor);
-                    System.out.println("Transferência realizada com sucesso!");
+                    System.out.println("\n🔄 Transferência realizada com sucesso!");
                 } else {
-                    System.out.println("Saldo insuficiente!");
+                    System.out.println("\n❌ Saldo insuficiente!");
                 }
                 break;
             }
         }
 
         if(!contaEncontrada) {
-            System.out.println("Conta de destino não encontrada, tente novamente mais tarde!");
+            System.out.println("\n❌ Conta de destino não encontrada, tente novamente!");
         }
 
     }

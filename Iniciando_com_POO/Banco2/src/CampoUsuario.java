@@ -1,6 +1,5 @@
 import java.util.*;
 
-// Enum para campos de usuário e utilitários de validação
 public enum CampoUsuario {
     NOME,
     GENERO,
@@ -18,8 +17,9 @@ public enum CampoUsuario {
             } catch (IllegalArgumentException e) {
                 System.out.println("Opção inválida: " + opcao);
             }
+        } else {
+            System.out.println("Campo vazio ou caracteres ilegais");
         }
-        System.out.println("Campo vazio ou caracteres ilegais");
         return null;
     }
 
@@ -28,11 +28,11 @@ public enum CampoUsuario {
         String valor = sc.nextLine();
         int i = 1;
         while (valor.isEmpty()) {
-            if(i <= 3) {
-                System.err.print("Campo não pode ser vazio! Tente novamente: ");
+            if (i <= 3) {
+                System.err.printf("\r(%d / 3) CAMPO VAZIO! Tente novamente: ", i);
                 valor = sc.nextLine();
             } else {
-                throw new Exception();
+                throw new Exception("Limite de tentativas excedido");
             }
             i++;
         }
@@ -41,21 +41,32 @@ public enum CampoUsuario {
 
     // Valida gênero (masculino/feminino)
     public static String verificarGenero(Scanner sc) throws Exception {
-        String genero = null;
+        String genero;
+        int tentativas = 0;
         do {
-            genero = verificarCampo(sc);
-            genero = toCapitalize(sc);
-        } while (!genero.equals("Masculino") && !genero.equals("Feminino"));
-        return genero;
+            tentativas++;   
+
+            genero = sc.nextLine().trim().toLowerCase();
+            if(genero.isEmpty()) {
+                System.out.println("+----------------------------------------------+");
+                System.out.printf("| (%d / 3) Campo vazio! Tente novamente.        |\n", tentativas);
+                System.out.println("+----------------------------------------------+");
+            } else if (!genero.equals("masculino") && !genero.equals("feminino")) {
+                System.err.printf("\r⚠️  (%d / 3) Gênero inválido! Digite 'Masculino' ou 'Feminino': ", tentativas);
+            } else {
+                return toCapitalize(genero);
+            }
+        } while (tentativas < 4);
+        throw new Exception("Limite de tentativas excedido");
     }
 
-    // Capitaliza primeira letra do campo
+    // Capitaliza primeira letra
     public static String toCapitalize(Scanner sc) throws Exception {
-        String campo = sc.nextLine();
+        String campo = verificarCampo(sc);
+        return campo.substring(0, 1).toUpperCase() + campo.substring(1).toLowerCase();
+    }
 
-        campo = verificarCampo(sc);
-
-        return campo.substring(0, 1).toUpperCase() + campo.substring(1);
+    public static String toCapitalize(String item) throws Exception {
+        return item.substring(0, 1).toUpperCase() + item.substring(1).toLowerCase();
     }
 }
-

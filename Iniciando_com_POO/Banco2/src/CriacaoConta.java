@@ -3,23 +3,28 @@ import java.util.*;
 public class CriacaoConta {
     public static void criarConta(Scanner sc, Map<Integer, Conta> listaDeContas) {
         Conta conta = null;
+        mensagemMenu();
         try {
             // Coleta de dados do usuário
-            System.out.print("\nInsira seu nome: ");
-            String nome = CampoUsuario.verificarCampo(sc);
-            System.out.print("Insira seu gênero: (Masculino ou Feminino) ");
+            System.out.println("\n📝 Preencha os dados para criar sua conta:");
+            System.out.println();
+            System.out.println("+----------------------------------------------+");
+            System.out.println("|           CRIAÇÃO DE NOVA CONTA              |");
+            System.out.println("+----------------------------------------------+");
+            System.out.print("Nome: ");
+            String nome = CampoUsuario.toCapitalize(sc);
+            System.out.print("Gênero (Masculino/Feminino): ");
             String genero = CampoUsuario.verificarGenero(sc);
-            System.out.print("Insira seu CPF: ");
+            System.out.print("CPF: ");
             String cpf = CampoUsuario.verificarCampo(sc);
-            System.out.print("Insira seu email: ");
+            System.out.print("Email: ");
             String email = CampoUsuario.verificarCampo(sc);
-            System.out.print("Insira seu telefone: ");
+            System.out.print("Telefone: ");
             String telefoneStr = CampoUsuario.verificarCampo(sc);
             long telefone = Long.parseLong(telefoneStr);
-            System.out.print("Insira uma senha: ");
+            System.out.print("Senha: ");
             String senha = CampoUsuario.verificarCampo(sc);
-
-            System.out.print("Qual tipo de conta deseja criar? (Corrente/Poupanca): ");
+            System.out.print("Tipo de conta (Corrente/Poupanca): ");
             String opcaoConta = CampoUsuario.verificarCampo(sc);
 
             TipoContas tipo = TipoContas.converterContas(opcaoConta);
@@ -36,11 +41,13 @@ public class CriacaoConta {
                     conta = criarContaPorTipo(tipo, nome, genero, cpf, email, telefone, senha);
                     listaDeContas.put(conta.getNumConta(), conta);
 
-                    System.out.printf("\nConta %s criada com sucesso!\n", tipo);
+                    System.out.println("+----------------------------------------------+");
+                    System.out.println("| Conta criada com sucesso!                    |");
+                    System.out.println("+----------------------------------------------+");
                     infoContas(nome, genero, cpf, email, telefone, senha, conta.getNumConta());
                 } else {
                     // Permite edição dos dados antes de criar a conta
-                    System.out.print("\nQual parte deseja alterar? (nome / cpf / email / telefone / senha / todos): ");
+                    System.out.print("\n✏️  Qual parte deseja alterar? (nome / cpf / email / telefone / senha / todos): ");
                     String campoEditar = CampoUsuario.verificarCampo(sc);
                     CampoUsuario campo = CampoUsuario.converterCampo(campoEditar);
 
@@ -49,7 +56,7 @@ public class CriacaoConta {
                             switch (campo) {
                                 case NOME -> {
                                     System.out.print("Insira novo nome: ");
-                                    nome = CampoUsuario.verificarCampo(sc);
+                                    nome = CampoUsuario.toCapitalize(sc);
                                 }
                                 case GENERO -> {
                                     System.out.print("Insira o novo gênero: (Masculino ou Feminino) ");
@@ -74,9 +81,9 @@ public class CriacaoConta {
                                 case TODOS -> {
                                     // Permite editar todos os campos
                                     System.out.print("Insira novo nome: ");
-                                    nome = CampoUsuario.verificarCampo(sc);
+                                    nome = CampoUsuario.toCapitalize(sc);
                                     System.out.print("Insira o novo gênero: (Masculino ou Feminino) ");
-                                    genero = CampoUsuario.verificarGenero(sc);
+                                    genero = CampoUsuario.toCapitalize(sc);
                                     System.out.print("Insira novo CPF: ");
                                     cpf = CampoUsuario.verificarCampo(sc);
                                     System.out.print("Insira novo email: ");
@@ -97,7 +104,9 @@ public class CriacaoConta {
                         conta = criarContaPorTipo(tipo, nome, genero, cpf, email, telefone, senha);
                         listaDeContas.put(conta.getNumConta(), conta);
 
-                        System.out.printf("\nConta %s criada com sucesso!\n", tipo);
+                        System.out.println("+----------------------------------------------+");
+                        System.out.println("| Conta criada com sucesso!                    |");
+                        System.out.println("+----------------------------------------------+");
                         infoContas(nome, genero, cpf, email, telefone, senha, conta.getNumConta());
                     } else {
                         System.out.println("Problema na criação da conta, tente novamente!");
@@ -106,10 +115,10 @@ public class CriacaoConta {
             }
         } catch (NumberFormatException e) {
             // Erro ao converter telefone
-            System.out.println("Impossível criar a conta! Tente novamente mais tarde (" + e.getMessage() + ")");
+            System.err.println("\nImpossível criar a conta! Tente novamente mais tarde (" + e.getMessage() + ")");
         } catch (Exception e) {
             // Excedeu tentativas ou erro inesperado
-            System.err.println("\nNúmero máximo de tentativas excedido. Retornando ao menu principal.");
+            System.err.println("\n\nNúmero máximo de tentativas excedido. Retornando ao menu principal. (" + e.getMessage() + ")");
         }
     }
 
@@ -142,12 +151,20 @@ public class CriacaoConta {
 
     // Exibe informações para confirmação antes da criação
     private static void mostrarInformacoesCadastradas(String nome, String genero, String cpf, String email, long telefone, String senha) {
-        System.out.println("\nConfirme os dados:");
+        System.out.println("\n🔎 Confira seus dados:");
+        System.out.println("─────────────────────────────");
         System.out.println("Nome: " + nome);
         System.out.println("Gênero: " + genero);
         System.out.println("CPF: " + cpf);
         System.out.println("Email: " + email);
         System.out.println("Telefone: " + telefone);
         System.out.println("Senha: " + senha);
+        System.out.println("─────────────────────────────");
+    }
+
+    private static void mensagemMenu() {
+        System.out.println("\n=======================");
+        System.out.println("  Criação de Conta");
+        System.out.println("=======================");
     }
 }

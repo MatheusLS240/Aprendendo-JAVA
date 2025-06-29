@@ -21,9 +21,9 @@ public class ContaPoupanca extends Conta {
 
         if (valor <= getSaldo() && valor >= 1) {
             setSaldo(getSaldo() - valor);
-            System.out.printf("Saque de %.2f realizado com sucesso!\n", valor);
+            System.out.printf("\n💸 Saque de %.2f realizado com sucesso!\n", valor);
         } else {
-            System.out.println("Erro no saque, valor inválido ou saldo insuficiente.");
+            System.out.println("\n❌ Valor inválido ou saldo insuficiente.");
         }
     }
 
@@ -56,15 +56,15 @@ public class ContaPoupanca extends Conta {
         if(valorAplicado) {
             if(verificarCarenciaDias()) {
                 setSaldo(this.getSaldo() + valorTotalRenda);
-                System.out.println("Valor do saque realizado com sucesso!");
+                System.out.println("\n💰 Valor do saque realizado com sucesso!");
                 valorAplicado = false;
             } else {
                 long diasRestantes = ChronoUnit.DAYS.between(hoje, dataAplicacao.plusDays(carenciaDias));
                 diasRestantes = Math.max(0, diasRestantes);
-                System.out.printf("Faltam %d dias para realizar o saque", diasRestantes);
+                System.out.printf("\n⏳ Faltam %d dias para realizar o saque.\n", diasRestantes);
             }
         } else {
-            System.out.println("É necessario aplicar um valor antes de tentar sacar!");
+            System.out.println("\n⚠️  É necessário aplicar um valor antes de tentar sacar!");
         }
     }
 

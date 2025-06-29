@@ -21,11 +21,11 @@ public class ContaCorrente extends Conta {
 
         if (valor <= saldoAtual) {
             setSaldo(saldoAtual - valor);
-            System.out.println("Saque realizado com sucesso. Saldo restante: R$ " + getSaldo());
+            System.out.println("\n💸 Saque realizado com sucesso. Saldo restante: R$ " + getSaldo());
         } else if (verificandoUsoCheque(valor)) {
-            System.out.println("Saque realizado com uso do cheque especial. Saldo atual: R$ " + getSaldo());
+            System.out.println("\n💳 Saque realizado com uso do cheque especial. Saldo atual: R$ " + getSaldo());
         } else {
-            System.out.println("Saldo insuficiente");
+            System.out.println("\n❌ Saldo insuficiente");
         }
     }
 
@@ -56,14 +56,14 @@ public class ContaCorrente extends Conta {
 
     private void descontarTaxaManutencao() {
         setSaldo(getSaldo() - taxaManutencao);
-        System.out.println("Taxa de manutenção de R$" + taxaManutencao + " aplicada.");
+        System.out.println("\n💸 Taxa de manutenção de R$" + taxaManutencao + " aplicada.");
     }
 
     private void aplicarJurosChequeEspecial() {
         if (getSaldo() < 0) {
             double juros = Math.abs(getSaldo()) * jurosChequeEspecial;
             setSaldo(getSaldo() - juros);
-            System.out.println("Juros de R$" + juros + " aplicados sobre o cheque especial.");
+            System.out.println("\n💸 Juros de R$" + juros + " aplicados sobre o cheque especial.");
         }
     }
 
