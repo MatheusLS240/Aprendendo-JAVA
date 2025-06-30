@@ -1,13 +1,9 @@
-import java.time.*;
+import java.time.LocalDate;
+import java.util.Scanner;
 
-// Conta corrente com funcionalidades específicas
 public class ContaCorrente extends Conta {
-    private double taxaManutencao = 12.90;
-    private double limiteChequeEspecial = 500.00;
-    private double jurosChequeEspecial = 0.08;
-    private double taxaSaque = 2.50;
-    private boolean permiteChequeEspecial = true;
-    private boolean usandoChequeEspecial = false;
+    private double taxaSaque = 2.5;
+    private double taxaManutencao = 12.0;
 
     public ContaCorrente(String nome, String genero, String cpf, String email, long telefone, String senha) {
         super(nome, genero, cpf, email, telefone);
@@ -16,80 +12,33 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
-    public void sacar(double valor) {
-        double saldoAtual = getSaldo();
+    public void sacar(Scanner sc) {
+        verificarEncargosMensais();
+        System.out.println("\n( -- Saque Conta " + getNumConta() + " -- )");
+        System.out.print("Informe o valor para saque: ");
+        double valor = sc.nextDouble();
+        sc.nextLine();
 
-        if (valor <= saldoAtual) {
-            setSaldo(saldoAtual - valor);
-            System.out.println("\n💸 Saque realizado com sucesso. Saldo restante: R$ " + getSaldo());
-        } else if (verificandoUsoCheque(valor)) {
-            System.out.println("\n💳 Saque realizado com uso do cheque especial. Saldo atual: R$ " + getSaldo());
+        if (valor + taxaSaque <= getSaldo() && valor >= 1) {
+            setSaldo(getSaldo() - valor - taxaSaque);
+            System.out.println("\n( -- Saque Conta " + getNumConta() + " -- )");
+            System.out.println("Saque realizado com sucesso.");
+            System.out.printf("Taxa de saque: R$ %.2f\n", taxaSaque);
+            System.out.printf("Saldo atual: R$ %.2f\n", getSaldo());
         } else {
-            System.out.println("\n❌ Saldo insuficiente");
+            System.out.println("\n( -- Saque Conta " + getNumConta() + " -- )");
+            System.out.println("Valor inválido ou saldo insuficiente.");
         }
     }
 
-    // Verifica e utiliza cheque especial se necessário
-    private boolean verificandoUsoCheque(double valor) {
-        double saldoAtual = getSaldo();
-        double saldoECheque = saldoAtual + limiteChequeEspecial;
-
-        if(permiteChequeEspecial && valor <= saldoECheque) {
-            setSaldo((saldoAtual - valor) - taxaSaque);
-            usandoChequeEspecial = true;
-            return true;
-        }
-        return false;
-    }
-
-    // Aplica encargos mensais se necessário
-    private void verificarEncargosMensais() {
+    public void verificarEncargosMensais() {
         LocalDate hoje = LocalDate.now();
-        if(getUltimaAtualizacao().plusMonths(1).isBefore(hoje) || getUltimaAtualizacao().plusMonths(1).equals(hoje)) {
-            descontarTaxaManutencao();
-            if(usandoChequeEspecial) {
-                aplicarJurosChequeEspecial();
-            }
+        if (getUltimaAtualizacao().plusMonths(1).isBefore(hoje) || getUltimaAtualizacao().plusMonths(1).equals(hoje)) {
+            setSaldo(getSaldo() - taxaManutencao);
             setUltimaAtualizacao(hoje);
+            System.out.println("\n( -- Encargos Conta " + getNumConta() + " -- )");
+            System.out.println("Taxa de manutenção mensal debitada da conta corrente.");
         }
-    }
-
-    private void descontarTaxaManutencao() {
-        setSaldo(getSaldo() - taxaManutencao);
-        System.out.println("\n💸 Taxa de manutenção de R$" + taxaManutencao + " aplicada.");
-    }
-
-    private void aplicarJurosChequeEspecial() {
-        if (getSaldo() < 0) {
-            double juros = Math.abs(getSaldo()) * jurosChequeEspecial;
-            setSaldo(getSaldo() - juros);
-            System.out.println("\n💸 Juros de R$" + juros + " aplicados sobre o cheque especial.");
-        }
-    }
-
-    // Getters e setters
-    public double getTaxaManutencao() {
-        return taxaManutencao;
-    }
-
-    public void setTaxaManutencao(double taxaManutencao) {
-        this.taxaManutencao = taxaManutencao;
-    }
-
-    public double getLimiteChequeEspecial() {
-        return limiteChequeEspecial;
-    }
-
-    public void setLimiteChequeEspecial(double limiteChequeEspecial) {
-        this.limiteChequeEspecial = limiteChequeEspecial;
-    }
-
-    public double getJurosChequeEspecial() {
-        return jurosChequeEspecial;
-    }
-
-    public void setJurosChequeEspecial(double jurosChequeEspecial) {
-        this.jurosChequeEspecial = jurosChequeEspecial;
     }
 
     public double getTaxaSaque() {
@@ -100,19 +49,13 @@ public class ContaCorrente extends Conta {
         this.taxaSaque = taxaSaque;
     }
 
-    public boolean isPermiteChequeEspecial() {
-        return permiteChequeEspecial;
+    public double getTaxaManutencao() {
+        return taxaManutencao;
     }
 
-    public void setPermiteChequeEspecial(boolean permiteChequeEspecial) {
-        this.permiteChequeEspecial = permiteChequeEspecial;
+    public void setTaxaManutencao(double taxaManutencao) {
+        this.taxaManutencao = taxaManutencao;
     }
 
-    public boolean isUsandoChequeEspecial() {
-        return usandoChequeEspecial;
-    }
-
-    public void setUsandoChequeEspecial(boolean usandoChequeEspecial) {
-        this.usandoChequeEspecial = usandoChequeEspecial;
-    }
+    
 }

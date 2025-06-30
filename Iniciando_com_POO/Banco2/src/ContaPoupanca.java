@@ -1,11 +1,11 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
 
-// Conta poupança com rendimento e carência
 public class ContaPoupanca extends Conta {
     private double taxaRendimento = 0.005;
     private int carenciaDias = 10;
-    private double valorTotalRenda = this.getSaldo();
+    private double valorTotalRenda = 0.0;
     private LocalDate dataAplicacao = null;
     private boolean valorAplicado = false;
 
@@ -16,59 +16,58 @@ public class ContaPoupanca extends Conta {
     }
 
     @Override
-    public void sacar(double valor) {
+    public void sacar(Scanner sc) {
         aplicarRendimentosMensais();
+        System.out.println("\n( -- Saque Conta " + getNumConta() + " -- )");
+        System.out.print("Informe o valor para saque: ");
+        double valor = sc.nextDouble();
+        sc.nextLine(); 
 
-        if (valor <= getSaldo() && valor >= 1) {
+        if (valorAplicado && valor == valorTotalRenda) {
+            if (verificarCarenciaDias()) {
+                setSaldo(getSaldo() + valorTotalRenda);
+                System.out.println("\n( -- Saque Conta " + getNumConta() + " -- )");
+                System.out.println("Resgate de rendimentos efetuado com sucesso.");
+                valorAplicado = false;
+                valorTotalRenda = 0.0;
+            } else {
+                long diasRestantes = ChronoUnit.DAYS.between(LocalDate.now(), dataAplicacao.plusDays(carenciaDias));
+                System.out.println("\n( -- Saque Conta " + getNumConta() + " -- )");
+                System.out.println("Resgate indisponível. Aguarde " + diasRestantes + " dia(s) para sacar os rendimentos.");
+            }
+        } else if (valor <= getSaldo() && valor >= 1) {
             setSaldo(getSaldo() - valor);
-            System.out.printf("\n💸 Saque de %.2f realizado com sucesso!\n", valor);
+            System.out.println("\n( -- Saque Conta " + getNumConta() + " -- )");
+            System.out.println("Saque realizado com sucesso.");
         } else {
-            System.out.println("\n❌ Valor inválido ou saldo insuficiente.");
+            System.out.println("\n( -- Saque Conta " + getNumConta() + " -- )");
+            System.out.println("Valor inválido ou saldo insuficiente.");
         }
     }
 
-    // Aplica rendimento mensal se necessário
-    private void aplicarRendimentosMensais() {
+    public void aplicarRendimentosMensais() {
         LocalDate hoje = LocalDate.now();
-        if(getUltimaAtualizacao().plusMonths(1).isBefore(hoje) || getUltimaAtualizacao().plusMonths(1).equals(hoje)) {
+        if (getUltimaAtualizacao().plusMonths(1).isBefore(hoje) || getUltimaAtualizacao().plusMonths(1).equals(hoje)) {
             valorTotalRenda = getSaldo() * taxaRendimento;
             setSaldo(getSaldo() + valorTotalRenda);
             setUltimaAtualizacao(hoje);
             this.valorAplicado = true;
-            if(this.dataAplicacao == null) {
+            if (this.dataAplicacao == null) {
                 this.dataAplicacao = hoje;
             }
+            System.out.println("\n( -- Aplicar Rendimentos Conta " + getNumConta() + " -- )");
+            System.out.println("Rendimentos aplicados à conta poupança.");
         }
     }
 
-    // Verifica se já cumpriu a carência para saque do rendimento
     private boolean verificarCarenciaDias() {
         LocalDate hoje = LocalDate.now();
-        if(dataAplicacao != null) {
+        if (dataAplicacao != null) {
             return this.dataAplicacao.plusDays(carenciaDias).isBefore(hoje) || this.dataAplicacao.plusDays(carenciaDias).equals(hoje);
         }
         return false;
     }
 
-    // Resgata rendimento se possível
-    private void resgatarRendimentosMensais() {
-        LocalDate hoje = LocalDate.now();
-        if(valorAplicado) {
-            if(verificarCarenciaDias()) {
-                setSaldo(this.getSaldo() + valorTotalRenda);
-                System.out.println("\n💰 Valor do saque realizado com sucesso!");
-                valorAplicado = false;
-            } else {
-                long diasRestantes = ChronoUnit.DAYS.between(hoje, dataAplicacao.plusDays(carenciaDias));
-                diasRestantes = Math.max(0, diasRestantes);
-                System.out.printf("\n⏳ Faltam %d dias para realizar o saque.\n", diasRestantes);
-            }
-        } else {
-            System.out.println("\n⚠️  É necessário aplicar um valor antes de tentar sacar!");
-        }
-    }
-
-    // Getters e setters
     public double getTaxaRendimento() {
         return taxaRendimento;
     }
@@ -101,4 +100,11 @@ public class ContaPoupanca extends Conta {
         this.dataAplicacao = dataAplicacao;
     }
 
+    public boolean isValorAplicado() {
+        return valorAplicado;
+    }
+
+    public void setValorAplicado(boolean valorAplicado) {
+        this.valorAplicado = valorAplicado;
+    }
 }
