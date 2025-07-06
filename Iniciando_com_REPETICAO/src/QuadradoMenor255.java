@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class QuadradoMenor255 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int i = 1, res = 0;
+        int i = 1;
 
         do {
             System.out.println("Digite o " + i +" valor:");

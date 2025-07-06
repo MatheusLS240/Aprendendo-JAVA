@@ -40,6 +40,7 @@ class Conta implements Comparable<Conta> {
 }
 
 class TitularComparator implements Comparator<Conta> {
+    @Override
     public int compare(Conta conta, Conta outraConta) {
         return conta.getTitular().compareTo(outraConta.getTitular());
     }

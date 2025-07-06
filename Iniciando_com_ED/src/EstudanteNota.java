@@ -55,51 +55,54 @@ class OrdenarPorNome implements Comparator<Estudante> {
 public class EstudanteNota {
     public static void main(String[] args) {
         List<Estudante> listaDeEstudante = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
-        String opcao = "null";
+        try (Scanner sc = new Scanner(System.in)) {
+            String opcao = "null";
 
-        while (!opcao.equalsIgnoreCase("sim")) {
-            System.out.print("Insira o nome do estudante: ");
-            String nomeEstudante = sc.nextLine();
-            System.out.print("Insira a nota final: ");
-            float notaFinalEstudante = sc.nextFloat();
-            sc.nextLine();
+            while (!opcao.equalsIgnoreCase("sim")) {
+                System.out.print("Insira o nome do estudante: ");
+                String nomeEstudante = sc.nextLine();
+                System.out.print("Insira a nota final: ");
+                float notaFinalEstudante = sc.nextFloat();
+                sc.nextLine();
 
-            listaDeEstudante.add(new Estudante(nomeEstudante, notaFinalEstudante));
+                listaDeEstudante.add(new Estudante(nomeEstudante, notaFinalEstudante));
 
-            System.out.println("\nAdicionado com sucesso!\n");
+                System.out.println("\nAdicionado com sucesso!\n");
 
 
-            System.out.print("Deseja encerrar o cadastro? (sim ou não): ");
-            opcao = sc.nextLine();
+                System.out.print("Deseja encerrar o cadastro? (sim ou não): ");
+                opcao = sc.nextLine();
 
-            System.out.println("===============================================");
-        }
-
-        while (true) {
-            System.out.println("Como deseja ordenar os estudantes? (NOME ou NOTA FINAL):");
-            opcao = sc.nextLine().toUpperCase();
-            switch (opcao) {
-                case "NOME" -> {
-                    listaDeEstudante.sort(new OrdenarPorNome());
-
-                    for(Estudante estudante : listaDeEstudante) {
-                        System.out.printf("Nome: %s | Nota final: %.2f\n", estudante.getNome(), estudante.getNotaFinal());
-                    }
-
-                    System.exit(0);
-                }
-                case "NOTA FINAL" -> {
-                    listaDeEstudante.sort(new OrdenarPorNota().reversed());
-
-                    for(Estudante estudante : listaDeEstudante) {
-                        System.out.printf("Nome: %s | Nota final: %.2f\n", estudante.getNome(), estudante.getNotaFinal());
-                    }
-
-                    System.exit(0);
-                }
-                default -> System.out.println("Opção inválida. Tente novamente digitando 'NOME' ou 'NOTA FINAL'.");
+                System.out.println("===============================================");
             }
+
+            while (true) {
+                System.out.println("Como deseja ordenar os estudantes? (NOME ou NOTA FINAL):");
+                opcao = sc.nextLine().toUpperCase();
+                switch (opcao) {
+                    case "NOME" -> {
+                        listaDeEstudante.sort(new OrdenarPorNome());
+
+                        for(Estudante estudante : listaDeEstudante) {
+                            System.out.printf("Nome: %s | Nota final: %.2f\n", estudante.getNome(), estudante.getNotaFinal());
+                        }
+
+                        System.exit(0);
+                    }
+                    case "NOTA FINAL" -> {
+                        listaDeEstudante.sort(new OrdenarPorNota().reversed());
+
+                        for(Estudante estudante : listaDeEstudante) {
+                            System.out.printf("Nome: %s | Nota final: %.2f\n", estudante.getNome(), estudante.getNotaFinal());
+                        }
+
+                        System.exit(0);
+                    }
+                    default -> System.out.println("Opção inválida. Tente novamente digitando 'NOME' ou 'NOTA FINAL'.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 }

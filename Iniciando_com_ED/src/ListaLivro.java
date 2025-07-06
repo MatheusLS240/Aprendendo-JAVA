@@ -54,35 +54,38 @@ class Livro implements Comparable<Livro> {
 
 public class ListaLivro {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        List<Livro> listaDeLivros = new LinkedList<>();
-        String opcao = "null";
+        try (Scanner sc = new Scanner(System.in)) {
+            List<Livro> listaDeLivros = new LinkedList<>();
+            String opcao = "null";
 
-        while (!opcao.equalsIgnoreCase("sim")) {
-            System.out.print("Insira o nome do livro: ");
-            String nomeLivro = sc.nextLine().toUpperCase();
-            System.out.print("Insira o nome do autor: ");
-            String autorLivro = sc.nextLine().toUpperCase();
-            System.out.print("Insira a data de publicação: ");
-            String publicacaoLivro  = sc.nextLine();
+            while (!opcao.equalsIgnoreCase("sim")) {
+                System.out.print("Insira o nome do livro: ");
+                String nomeLivro = sc.nextLine().toUpperCase();
+                System.out.print("Insira o nome do autor: ");
+                String autorLivro = sc.nextLine().toUpperCase();
+                System.out.print("Insira a data de publicação: ");
+                String publicacaoLivro  = sc.nextLine();
 
-            publicacaoLivro = converterData(publicacaoLivro);
+                publicacaoLivro = converterData(publicacaoLivro);
 
-            listaDeLivros.add(new Livro(nomeLivro, autorLivro, publicacaoLivro ));
+                listaDeLivros.add(new Livro(nomeLivro, autorLivro, publicacaoLivro ));
 
-            System.out.println("\nAdicionado com sucesso!\n");
+                System.out.println("\nAdicionado com sucesso!\n");
 
-            System.out.print("Deseja encerrar o cadastro de livros? (sim ou não): ");
-            opcao = sc.nextLine();
+                System.out.print("Deseja encerrar o cadastro de livros? (sim ou não): ");
+                opcao = sc.nextLine();
 
-            System.out.println("===============================================");
-        }
+                System.out.println("===============================================");
+            }
 
-        Collections.sort(listaDeLivros);
+            Collections.sort(listaDeLivros);
 
-        for (Livro livro : listaDeLivros) {
-            System.out.printf("Título: %s | Autor: %s | Data: %s%n",
-                    livro.getTitulo(), livro.getAutor(), livro.getData());
+            for (Livro livro : listaDeLivros) {
+                System.out.printf("Título: %s | Autor: %s | Data: %s%n",
+                        livro.getTitulo(), livro.getAutor(), livro.getData());
+            }
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 

@@ -44,31 +44,37 @@ class Filme implements Comparable<Filme> {
 public class ListaFilme {
     public static void main(String[] args) {
         List<Filme> listaDeFilmes = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
-        String opcao = "null";
+        try (Scanner sc = new Scanner(System.in)) {
+            String opcao = "null";
 
-        while(!opcao.equalsIgnoreCase("nao")) {
-            System.out.print("Insira o nome do filme: ");
-            String nomeFilme = sc.nextLine();
-            System.out.print("Insira o nome do diretor: ");
-            String diretorFilme = sc.nextLine();
-            System.out.print("Insira o ano de lançamento: ");
-            int anoFilme = sc.nextInt();
-            sc.nextLine();
+            while(!opcao.equalsIgnoreCase("nao")) {
+                System.out.print("Insira o nome do filme: ");
+                String nomeFilme = sc.nextLine();
+                System.out.print("Insira o nome do diretor: ");
+                String diretorFilme = sc.nextLine();
+                System.out.print("Insira o ano de lançamento: ");
+                int anoFilme = sc.nextInt();
+                sc.nextLine();
 
-            listaDeFilmes.add(new Filme(nomeFilme, diretorFilme, anoFilme));
+                listaDeFilmes.add(new Filme(nomeFilme, diretorFilme, anoFilme));
 
-            System.out.print("Deseja continuar cadastrando? (sim ou não): ");
-            opcao = sc.nextLine();
+                System.out.print("Deseja continuar cadastrando? (sim ou não): ");
+                opcao = sc.nextLine();
 
-            System.out.println("------------------------------");
+                System.out.println("------------------------------");
+            }
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
         }
 
-        Collections.sort(listaDeFilmes);
-
-        System.out.println("\n--- Lista de Filmes Ordenada por Ano de Lançamento (crescente) ---\n");
-        for(Filme filme : listaDeFilmes) {
-            System.out.printf("Nome: %s | Diretor: %s | Ano de Lançamento: %d\n", filme.getNome(), filme.getDiretor(), filme.getAnoLancamento());
+        if(listaDeFilmes.isEmpty()) {
+            System.out.println("Nenhum filme cadastrado.");
+        } else {
+            Collections.sort(listaDeFilmes);
+            System.out.println("\n--- Lista de Filmes Ordenada por Ano de Lançamento (crescente) ---\n");
+            for(Filme filme : listaDeFilmes) {
+                System.out.printf("Nome: %s | Diretor: %s | Ano de Lançamento: %d\n", filme.getNome(), filme.getDiretor(), filme.getAnoLancamento());
+            }
         }
     }
 }

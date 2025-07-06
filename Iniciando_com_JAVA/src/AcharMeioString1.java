@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 public class AcharMeioString1 {
     public static void main(String[] args) {
-        Scanner ler = new Scanner(System.in);
-        System.out.println("Insira um número: ");
-        String palavra = ler.next();
-
-        System.out.println(meio(palavra));
-
-        ler.close();
+        try (Scanner ler = new Scanner(System.in)) {
+            System.out.println("Insira um número: ");
+            String palavra = ler.next();
+            
+            System.out.println(meio(palavra));
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
     }
 
     public static String meio(String palavra) {

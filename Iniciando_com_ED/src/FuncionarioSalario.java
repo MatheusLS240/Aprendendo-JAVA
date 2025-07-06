@@ -46,35 +46,41 @@ class CompararPorSalario implements Comparator<Funcionario> {
 public class FuncionarioSalario {
     public static void main(String[] args) {
         List<Funcionario> listaDeFuncionario = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
-        String opcao = "null";
+        try (Scanner sc = new Scanner(System.in)) {
+            String opcao = "null";
 
-        while(!opcao.equalsIgnoreCase("sim")) {
-            System.out.print("Insira o nome do funcionário: ");
-            String nomeFuncionario = sc.nextLine();
-            System.out.print("Insira o cargo: ");
-            String cargoFuncionario = sc.nextLine();
-            System.out.print("Insira o salário: ");
-            double salarioFuncionario = sc.nextDouble();
-            sc.nextLine();
+            while(!opcao.equalsIgnoreCase("sim")) {
+                System.out.print("Insira o nome do funcionário: ");
+                String nomeFuncionario = sc.nextLine();
+                System.out.print("Insira o cargo: ");
+                String cargoFuncionario = sc.nextLine();
+                System.out.print("Insira o salário: ");
+                double salarioFuncionario = sc.nextDouble();
+                sc.nextLine();
 
-            listaDeFuncionario.add(new Funcionario(nomeFuncionario, cargoFuncionario, salarioFuncionario));
+                listaDeFuncionario.add(new Funcionario(nomeFuncionario, cargoFuncionario, salarioFuncionario));
 
-            System.out.println("\nFuncionário adicionado com sucesso!\n");
+                System.out.println("\nFuncionário adicionado com sucesso!\n");
 
-            System.out.print("Deseja encerrar o cadastro? (sim ou não): ");
-            opcao = sc.nextLine();
+                System.out.print("Deseja encerrar o cadastro? (sim ou não): ");
+                opcao = sc.nextLine();
 
-            System.out.println("===============================================");
+                System.out.println("===============================================");
+            }
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());  
         }
+        if(listaDeFuncionario.isEmpty()) {
+            System.out.println("Lista de funcionários vazia!");
+        } else {
+            listaDeFuncionario.sort(new CompararPorSalario().reversed());
 
-        listaDeFuncionario.sort(new CompararPorSalario().reversed());
+            System.out.println("\n--- Lista de Funcionários Ordenada por Salário (maior para menor) ---\n");
+            for(Funcionario funcionarios : listaDeFuncionario) {
 
-        System.out.println("\n--- Lista de Funcionários Ordenada por Salário (maior para menor) ---\n");
-        for(Funcionario funcionarios : listaDeFuncionario) {
-
-            System.out.printf("Nome: %s | Cargo: %s | Salário: %.2f\n",
-                    funcionarios.getNome(), funcionarios.getCargo(), funcionarios.getSalario());
+                System.out.printf("Nome: %s | Cargo: %s | Salário: %.2f\n",
+                        funcionarios.getNome(), funcionarios.getCargo(), funcionarios.getSalario());
+            }
         }
     }
 }
