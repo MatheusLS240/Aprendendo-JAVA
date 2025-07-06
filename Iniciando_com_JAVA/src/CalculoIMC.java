@@ -1,5 +1,3 @@
-package Iniciando_com_JAVA.src;
-
 import java.text.DecimalFormat;
 import java.util.Scanner;
 

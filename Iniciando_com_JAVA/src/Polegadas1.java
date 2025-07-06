@@ -1,7 +1,5 @@
-package Iniciando_com_JAVA.src;
-
-import javax.swing.*;
 import java.text.*;
+import javax.swing.*;
 
 public class Polegadas1 {
     public static void main(String[] args) {
