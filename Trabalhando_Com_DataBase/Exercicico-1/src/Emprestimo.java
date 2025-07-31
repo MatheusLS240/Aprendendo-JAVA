@@ -74,7 +74,7 @@ public class Emprestimo implements Comparable<Emprestimo> {
 
     @Override
     public int compareTo(Emprestimo o) {
-        return this.livro.compareTo(o.getLivro());
+        return this.livro.compareToIgnoreCase(o.getLivro());
     }
 
 }

@@ -42,6 +42,9 @@ public class App {
                 case 5 -> {
                     LivrosDAO.quantidadeEmprestimos(quantidadeEmprestada);                    
                 }
+                default -> {
+                   System.out.println("Opção inválida!"); 
+                }
             }
         } while(true);
     }
