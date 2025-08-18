@@ -1,18 +1,35 @@
-# Exercícios para Treinar Lógica de Programação
+# 🧩 Prática de Conhecimentos Gerais
 
-Estes exercícios têm como objetivo aprimorar a lógica de programação e facilitar o entendimento de conceitos fundamentais da linguagem Java.
+Esta pasta foi criada para centralizar **exercícios e práticas de diversos tópicos** que fazem parte da minha formação em **desenvolvimento de sistemas**. O objetivo é consolidar conhecimentos adquiridos e aplicá-los de forma prática.
 
-## Iniciando os Estudos com Java
+## 🎯 Objetivos
 
-Durante os estudos, concentrei-me em exercícios que envolvem conceitos básicos da linguagem, como:
-- Condições
-- Funções
-- Estruturas de repetição
-- Switch
-- Array
-- POO (Programação Orientada a Objetos)
+* Revisar e reforçar conceitos de **Java, estruturas de dados, funções e algoritmos**
+* Explorar diferentes tipos de problemas de programação e suas soluções
+* Criar pequenos projetos e exercícios que simulam cenários reais
+* Preparar para desafios mais complexos, como **projetos integrados e resolução de problemas com lógica avançada**
 
-## Objetivo e Fontes dos Exercícios
+## 🧪 O que estou praticando
 
-O principal objetivo desses exercícios foi consolidar os fundamentos da linguagem Java, além de explorar alguns dos métodos e recursos mais importantes que ela oferece.  
-Alguns dos exercícios foram propostos pelo meu professor da escola técnica (ETEC Parque Belém), enquanto outros foram retirados de fontes online.
+* Lógica de programação aplicada a problemas diversos
+* Uso de **funções, classes, arrays e coleções** em Java
+* Operações matemáticas, manipulação de strings e arrays
+* Estruturação de código limpo, modular e organizado
+* Resolução de exercícios de nível básico, intermediário e avançado
+* Diversas outras coisas...
+
+## 📌 Por que isso é importante?
+
+Praticar conhecimentos gerais é essencial para:
+
+* Fixar conceitos aprendidos e descobrir **lacunas no entendimento**
+* Desenvolver **pensamento lógico e raciocínio crítico**
+* Estar preparado para resolver **problemas inesperados** em projetos reais
+* Garantir **confiança e fluidez** ao escrever código em diferentes contextos
+* Servir como base sólida para avançar para tópicos mais complexos, como **design patterns, bancos de dados e sistemas completos**
+
+---
+
+Este repositório reúne **exercícios, projetos e testes de conhecimento**, com foco em **aprendizado, prática constante e evolução no desenvolvimento de sistemas**.
+
+Aqui, cada arquivo e cada exercício é uma oportunidade de **aprender na prática e reforçar fundamentos essenciais** para se tornar um desenvolvedor completo.

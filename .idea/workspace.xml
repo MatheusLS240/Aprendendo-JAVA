@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa268887-5128-4dfc-8574-d27466b94251" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/ArrayCrescente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/ConcatenarStrings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/Dobro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/Fatorial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/Fibonacci.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/InverterPalavra.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MDC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MaiorArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MaiorNumero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MaiorPalavra.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MediaArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MultiplicarArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/NumeroInvertido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/NumeroPerfeito.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/NumeroPrimo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/ParOuImpar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/Soma.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/SomaArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/SomaDeUmAteN.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Trabalhando_Com_DataBase/LEIA ANTES.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Iniciando_com_JAVA/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Iniciando_com_JAVA/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/LEIA ANTES.md" beforeDir="false" afterPath="$PROJECT_DIR$/Iniciando_com_JAVA/LEIA ANTES.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/img/img1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jogo_da_Velha/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Jogo_da_Velha/LEIA ANTES.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MatheusLS240&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Matheuzinho1/Aprendendo-JAVA.git&quot;,
+    &quot;accountId&quot;: &quot;955828e8-16fa-475a-85f4-c32a88a58ef3&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="31RHLEO7JDGVzjkpnX6X0IMhZ5v" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Developer/Java/Estudos-Java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa268887-5128-4dfc-8574-d27466b94251" name="Changes" comment="" />
+      <created>1755479906441</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755479906441</updated>
+    </task>
+    <servers />
+  </component>
+</project>
