@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa268887-5128-4dfc-8574-d27466b94251" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/ArrayCrescente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/ConcatenarStrings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/Dobro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/Fatorial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/Fibonacci.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/InverterPalavra.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MDC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MaiorArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MaiorNumero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MaiorPalavra.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MediaArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/MultiplicarArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/NumeroInvertido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/NumeroPerfeito.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/NumeroPrimo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/ParOuImpar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/Soma.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/SomaArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Iniciando_com_FUNCAO/src/SomaDeUmAteN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Trabalhando_Com_DataBase/LEIA ANTES.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Iniciando_com_JAVA/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Iniciando_com_JAVA/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/LEIA ANTES.md" beforeDir="false" afterPath="$PROJECT_DIR$/Iniciando_com_JAVA/LEIA ANTES.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Iniciando_com_JAVA/img/img1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jogo_da_Velha/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Jogo_da_Velha/LEIA ANTES.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
